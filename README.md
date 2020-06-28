@@ -1,42 +1,47 @@
-<include a CircleCI status badge, here>
+[![R-K-1](https://circleci.com/gh/R-K-1/project-ml-microservice-kubernetes.svg?style=svg)](<LINK>)
 
-## Project Overview
+## House Price Predictor Project
 
-In this project, you will apply the skills you have acquired in this course to operationalize a Machine Learning Microservice API. 
+This project demonstrates the power of the Docker-Kubernetes combination. It implements the microservice API architecture to interact with a pre-trained machine learning model predicting the price of houses in the Boston, MA market.
 
-You are given a pre-trained, `sklearn` model that has been trained to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, and so on. You can read more about the data, which was initially taken from Kaggle, on [the data source site](https://www.kaggle.com/c/boston-housing). This project tests your ability to operationalize a Python flask app—in a provided file, `app.py`—that serves out predictions (inference) about housing prices through API calls. This project could be extended to any pre-trained machine learning model, such as those for image recognition and data labeling.
+The `sklearn` model has been trained to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, and so on. You can read more about the data, which was initially taken from Kaggle, on [the data source site](https://www.kaggle.com/c/boston-housing).
 
-### Project Tasks
+This project could be extended to any pre-trained machine learning model, such as those for image recognition and data labeling.
 
-Your project goal is to operationalize this working, machine learning microservice using [kubernetes](https://kubernetes.io/), which is an open-source system for automating the management of containerized applications. In this project you will:
-* Test your project code using linting
-* Complete a Dockerfile to containerize this application
-* Deploy your containerized application using Docker and make a prediction
-* Improve the log statements in the source code for this application
-* Configure Kubernetes and create a Kubernetes cluster
-* Deploy a container using Kubernetes and make a prediction
-* Upload a complete Github repo with CircleCI to indicate that your code has been tested
+## TL;DR
 
-You can find a detailed [project rubric, here](https://review.udacity.com/#!/rubrics/2576/view).
+To run the project locally:
 
-**The final implementation of the project will showcase your abilities to operationalize production microservices.**
+* install Docker, Kubernetes and Hadolint
+* clone the project
+* navigate to the root of the project and run `make setup`
+* to test the Flask API standalone run `python3 app.py` in a terminal window and `./make_prediction.sh` in another one
+* To run the microservice API within a docker container execute `./run_docker.sh` in a terminal window; to test it, run `./make_prediction.sh` in another one.
+* To run the docker container within Kubernetes execute `./run_kubernetes.sh` in a terminatl window; to test it run `./make_predictions` in another one.
 
----
+## What You're Getting
+```bash
+├── CONTRIBUTING.md
+├── README.md - This file
+├── Dockerfile # Settings for the Docker container
+├── Makefile # Environment settings and lint test
+├── make_predition-sh # test API call
+├── requirements.txt # Python dependencies to be installed in each container
+├── run_docker.sh # script to deploy the API within a standalone docker container
+├── run_kubernetes.sh # script to deploy the API within a Docker container in a kubernetes orchestrator
+├── upload_docker.sh # script to puth an image of the Docker container to Docker Hub
+├── .circleci
+│   ├── config.yml # Settings for circleci continuous integration workflow
+└── output_txt_files
+    ├── docker_out.txt # log statement printed to terminal from Flask route when running in standalone Docker
+    ├── kubernetes_out.txt # log statement printed to terminal from Kubernetes orchestrator
+└── model_data
+    ├── boston_housing_prediction.joblib
+    ├── housing.csv
+```
 
-## Setup the Environment
+## Contributing
 
-* Create a virtualenv and activate it
-* Run `make install` to install the necessary dependencies
+Do not hesitate to submit a pull request.
 
-### Running `app.py`
-
-1. Standalone:  `python app.py`
-2. Run in Docker:  `./run_docker.sh`
-3. Run in Kubernetes:  `./run_kubernetes.sh`
-
-### Kubernetes Steps
-
-* Setup and Configure Docker locally
-* Setup and Configure Kubernetes locally
-* Create Flask app in Container
-* Run via kubectl
+For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
