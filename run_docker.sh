@@ -4,7 +4,7 @@
 
 # Step 1:
 # Build image and add a descriptive tag
-tag=rdaf16-api
+tag=rdaf16/api
 docker build --tag=$tag .
 
 # Step 2: 

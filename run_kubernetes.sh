@@ -5,7 +5,7 @@
 # Step 1:
 # This is your Docker ID/path
 # dockerpath=<>
-tag=rdaf16-api
+tag=rdaf16/api
 
 # Step 2
 # Run in Docker Hub container with kubernetes
