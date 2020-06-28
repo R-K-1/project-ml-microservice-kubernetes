@@ -8,7 +8,7 @@
 # dockerpath=<your docker ID/path>
 username=rdaf16
 repository=ml-docker-kube
-tag=rdaf16/api
+tag=rdaf16-api
 
 
 # Step 2:  

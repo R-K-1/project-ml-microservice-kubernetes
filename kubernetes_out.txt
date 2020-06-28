@@ -1,0 +1,6 @@
+Error from server (AlreadyExists): pods "flaskpricepredictor" already exists
+NAME                  READY     STATUS    RESTARTS   AGE
+flaskpricepredictor   1/1       Running   0          3h
+Forwarding from 127.0.0.1:8000 -> 80
+Handling connection for 8000
+
